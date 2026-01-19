@@ -1,0 +1,57 @@
+# version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: affiliate_db
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: affiliate_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U dev -d affiliate_db" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: affiliate_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  # Uncomment to run the API in Docker
+  # api:
+  #   build: .
+  #   container_name: affiliate_api
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - PORT=3000
+  #     - APP_ENV=development
+  #     - DB_HOST=db
+  #     - DB_PORT=5432
+  #     - DB_USER=dev
+  #     - DB_PASSWORD=dev
+  #     - DB_NAME=affiliate_db
+  #     - DB_SSLMODE=disable
+  #     - JWT_SECRET=your-super-secret-key
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+
+volumes:
+  postgres_data:
+  redis_data:
