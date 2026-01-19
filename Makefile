@@ -2,7 +2,7 @@
 
 # Default target
 help:
-	@echo "Affiliate Platform API - Available Commands"
+	@echo "Golang Modular Monolith Template - Available Commands"
 	@echo ""
 	@echo "Development:"
 	@echo "  make run          - Run the application"
@@ -89,7 +89,7 @@ docker-down:
 
 # Build Docker image
 docker-build:
-	docker build -t affiliate-api:latest .
+	docker build -t go-app:latest .
 
 # Clean build artifacts
 clean:

@@ -1,6 +1,6 @@
-# Affiliate Platform API
+# Golang Modular Monolith Template
 
-A robust, scalable backend service for an Affiliate Platform, built with Go using the **Modular Monolith** architecture.
+A clean, production-ready project template for building **Modular Monolith** applications with Go. This template provides a solid foundation with clear separation of concerns, infrastructure setup, and automation tools.
 
 ## 🚀 Tech Stack
 
@@ -14,7 +14,6 @@ A robust, scalable backend service for an Affiliate Platform, built with Go usin
 ## 🏗 Architecture: Modular Monolith
 
 This project follows a **Modular Monolith** design pattern to ensure scalability and maintainability. It strikes a balance between the simplicity of a monolith and the decoupling of microservices.
-
 ### Key Concepts
 
 - **Modules:** The application is divided into self-contained modules (e.g., `remote/modules/auth`, `user`, `product`, `affiliate`). Each module encapsulates its own domain logic, data access, and API handlers.
