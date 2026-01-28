@@ -27,6 +27,7 @@ coverage.html
 .env
 
 # IDEs
+.agent
 .idea/
 .vscode/
 .DS_Store
